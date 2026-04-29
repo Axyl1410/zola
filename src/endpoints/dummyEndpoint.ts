@@ -1,6 +1,6 @@
 import { contentJson, OpenAPIRoute } from "chanfana";
-import { AppContext } from "../types";
 import { z } from "zod";
+import type { AppContext } from "../types";
 
 export class DummyEndpoint extends OpenAPIRoute {
   public schema = {
@@ -14,7 +14,7 @@ export class DummyEndpoint extends OpenAPIRoute {
       body: contentJson(
         z.object({
           name: z.string(),
-        }),
+        })
       ),
     },
     responses: {

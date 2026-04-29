@@ -1,6 +1,6 @@
 import { ApiException, fromHono } from "chanfana";
 import { Hono } from "hono";
-import { ContentfulStatusCode } from "hono/utils/http-status";
+import type { ContentfulStatusCode } from "hono/utils/http-status";
 import { DummyEndpoint } from "./endpoints/dummyEndpoint";
 
 // Start a Hono app
@@ -11,7 +11,7 @@ app.onError((err, c) => {
     // If it's a Chanfana ApiException, let Chanfana handle the response
     return c.json(
       { success: false, errors: err.buildResponse() },
-      err.status as ContentfulStatusCode,
+      err.status as ContentfulStatusCode
     );
   }
 
@@ -23,7 +23,7 @@ app.onError((err, c) => {
       success: false,
       errors: [{ code: 7000, message: "Internal Server Error" }],
     },
-    500,
+    500
   );
 });
 

@@ -1,8 +1,9 @@
 {
-	"extends": "../tsconfig.json",
-	"compilerOptions": {
-		"moduleResolution": "bundler",
-		"types": ["@cloudflare/vitest-pool-workers"]
-	},
-	"include": ["./**/*.ts", "./**/*.mts"]
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "types": ["@cloudflare/vitest-pool-workers"],
+    "strictNullChecks": true
+  },
+  "include": ["./**/*.ts", "./**/*.mts"]
 }

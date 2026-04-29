@@ -1,25 +1,31 @@
 {
-  "name": "zola",
-  "description": "Complete backend API template using Hono + Chanfana + D1 + Vitest.",
   "dependencies": {
     "chanfana": "2.8.3",
     "hono": "4.11.1",
     "zod": "3.25.67"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.12",
     "@cloudflare/vitest-pool-workers": "0.10.11",
     "@types/node": "24.10.1",
+    "lefthook": "^2.1.6",
     "typescript": "5.9.3",
+    "ultracite": "7.6.2",
     "vitest": "3.2.4",
     "wrangler": "4.56.0"
   },
-  "private": true,
+  "name": "zola",
   "scripts": {
     "cf-typegen": "wrangler types",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "predeploy": "wrangler d1 migrations apply DB --remote",
     "schema": "npx chanfana",
-    "test": "wrangler deploy --dry-run && npx vitest run --config tests/vitest.config.mts"
-  }
+    "test": "wrangler deploy --dry-run && npx vitest run --config tests/vitest.config.mts",
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "prepare": "lefthook install"
+  },
+  "description": "Complete backend API template using Hono + Chanfana + D1 + Vitest.",
+  "private": true
 }
