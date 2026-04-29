@@ -1,14 +1,15 @@
 {
-  "compatibility_date": "2025-10-08",
+  "compatibility_date": "2026-04-21",
   "main": "src/index.ts",
   "name": "zola",
   "upload_source_maps": true,
+  "compatibility_flags": ["nodejs_compat"],
   "observability": {
     "enabled": true
   },
   "d1_databases": [
     {
-      "binding": "zola",
+      "binding": "DB",
       "database_name": "zola",
       "database_id": "53705f03-5d6e-4aa0-91be-ef9e22c20149",
       "remote": true

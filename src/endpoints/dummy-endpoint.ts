@@ -3,7 +3,7 @@ import { z } from "zod";
 import type { AppContext } from "../types";
 
 export class DummyEndpoint extends OpenAPIRoute {
-  public schema = {
+  schema = {
     tags: ["Dummy"],
     summary: "this endpoint is an example",
     operationId: "example-endpoint", // This is optional
@@ -32,7 +32,7 @@ export class DummyEndpoint extends OpenAPIRoute {
     },
   };
 
-  public async handle(c: AppContext) {
+  async handle(_c: AppContext) {
     const data = await this.getValidatedData<typeof this.schema>();
 
     return {
