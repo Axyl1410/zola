@@ -14,11 +14,23 @@ export const auth = betterAuth({
 
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: true,
     revokeSessionsOnPasswordReset: true,
     password: {
       hash: hashPassword,
       verify: verifyPassword,
+    },
+  },
+
+  account: {
+    accountLinking: {
+      trustedProviders: ["google"],
+    },
+  },
+
+  socialProviders: {
+    google: {
+      clientId: [env.GOOGLE_CLIENT_ID, env.GOOGLE_ANDROID_CLIENT_ID],
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
     },
   },
 
