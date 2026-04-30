@@ -4,6 +4,10 @@
     "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "types": ["@types/node", "./worker-configuration.d.ts"],
     "noEmit": true,
     "isolatedModules": true,

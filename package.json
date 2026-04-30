@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@upstash/redis": "^1.37.0",
     "better-auth": "^1.6.9",
     "chanfana": "2.8.3",
     "dotenv": "^17.4.2",
