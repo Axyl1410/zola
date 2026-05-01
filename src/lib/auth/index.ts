@@ -1,6 +1,7 @@
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { betterAuth } from "better-auth/minimal";
 import {
+  admin as adminPlugin,
   bearer,
   haveIBeenPwned,
   openAPI,
@@ -9,6 +10,7 @@ import {
 import { db } from "@/db/client";
 import { env } from "@/utils/cf-util";
 import { hashPassword, verifyPassword } from "./password-hash";
+import { ac, admin, user } from "./permissions";
 import { redisSecondaryStorage } from "./redis-secondary-storage";
 
 export const auth = betterAuth({
@@ -19,7 +21,7 @@ export const auth = betterAuth({
   }),
 
   emailAndPassword: {
-    enabled: true,
+    enabled: false,
     revokeSessionsOnPasswordReset: true,
     password: {
       hash: hashPassword,
@@ -65,6 +67,14 @@ export const auth = betterAuth({
     bearer(),
     haveIBeenPwned(),
     openAPI(),
+    adminPlugin({
+      defaultBanExpiresIn: 60 * 60 * 24 * 30, // 30 days
+      ac,
+      roles: {
+        admin,
+        user,
+      },
+    }),
     ...(env.ENVIRONMENT === "development" ? [testUtils()] : []),
   ],
 });
