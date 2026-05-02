@@ -4,6 +4,7 @@ import {
   admin as adminPlugin,
   bearer,
   haveIBeenPwned,
+  lastLoginMethod,
   openAPI,
   testUtils,
 } from "better-auth/plugins";
@@ -67,6 +68,9 @@ export const auth = betterAuth({
     bearer(),
     haveIBeenPwned(),
     openAPI(),
+    lastLoginMethod({
+      storeInDatabase: true,
+    }),
     adminPlugin({
       defaultBanExpiresIn: 60 * 60 * 24 * 30, // 30 days
       ac,

@@ -16,6 +16,7 @@ export const user = sqliteTable("user", {
     .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
+  lastLoginMethod: text("last_login_method"),
   role: text("role"),
   banned: integer("banned", { mode: "boolean" }).default(false),
   banReason: text("ban_reason"),
