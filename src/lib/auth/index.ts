@@ -15,6 +15,7 @@ import { ac, admin, user } from "./permissions";
 import { redisSecondaryStorage } from "./redis-secondary-storage";
 
 export const auth = betterAuth({
+  appName: "Zola",
   experimental: { joins: true },
   baseURL: env.BETTER_AUTH_URL,
   database: drizzleAdapter(db.getDatabase(), {
