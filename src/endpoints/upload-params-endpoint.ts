@@ -11,7 +11,6 @@ export class UploadParamsEndpoint extends OpenAPIRoute {
     tags: ["Upload"],
     summary: "Get upload URL and final object URL",
     operationId: "get-upload-params",
-    security: [{ bearerAuth: [] }],
     request: {
       headers: z
         .object({
