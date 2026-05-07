@@ -11,17 +11,21 @@ export class UploadParamsEndpoint extends OpenAPIRoute {
     tags: ["Upload"],
     summary: "Get upload URL and final object URL",
     operationId: "get-upload-params",
+    security: [{ bearerAuth: [] }],
     request: {
       headers: z
         .object({
           authorization: z.string().optional(),
-          cookie: z.string().optional(),
         })
         .passthrough(),
       query: z.object({
         key: z.string().min(1),
         contentType: z.string().min(1),
-        expiresIn: z.coerce.number().int().positive().default(DEFAULT_EXPIRES_IN_SECONDS),
+        expiresIn: z.coerce
+          .number()
+          .int()
+          .positive()
+          .default(DEFAULT_EXPIRES_IN_SECONDS),
       }),
     },
     responses: {
