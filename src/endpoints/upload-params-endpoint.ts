@@ -12,6 +12,12 @@ export class UploadParamsEndpoint extends OpenAPIRoute {
     summary: "Get upload URL and final object URL",
     operationId: "get-upload-params",
     request: {
+      headers: z
+        .object({
+          authorization: z.string().optional(),
+          cookie: z.string().optional(),
+        })
+        .passthrough(),
       query: z.object({
         key: z.string().min(1),
         contentType: z.string().min(1),
