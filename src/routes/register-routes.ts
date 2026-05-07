@@ -1,6 +1,7 @@
 import { fromHono } from "chanfana";
 import { registerAuthModule } from "@/features/auth/register-auth-module";
 import { registerDummyModule } from "@/features/dummy/register-dummy-module";
+import { registerUploadModule } from "@/features/upload/register-upload-module";
 import type { AppInstance } from "@/types";
 
 export function registerRoutes(app: AppInstance) {
@@ -18,4 +19,5 @@ export function registerRoutes(app: AppInstance) {
 
   registerDummyModule(app, openapi);
   registerAuthModule(app);
+  registerUploadModule(app);
 }
