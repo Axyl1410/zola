@@ -19,5 +19,5 @@ export function registerRoutes(app: AppInstance) {
 
   registerDummyModule(app, openapi);
   registerAuthModule(app);
-  registerUploadModule(app);
+  registerUploadModule(app, openapi);
 }
